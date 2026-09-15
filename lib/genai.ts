@@ -5,7 +5,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
 
 export async function analyzeBaseline(input: string): Promise<string> {
   const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
+    model: "gemini-3.6-flash",
     contents: input,
   });
   return response.text || "No response generated.";
@@ -71,7 +71,7 @@ export async function generateScorecard(
   answers: AdvisorAnswers,
 ): Promise<Scorecard> {
   const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
+    model: "gemini-3.6-flash",
     contents: buildScorecardPrompt(answers),
   });
   return parseScorecard(response.text || "");
