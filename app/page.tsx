@@ -1,4 +1,4 @@
-import ArchitectureAdvisorForm from "./components/ArchitectureAdvisorForm";
+import { ArchitectureAdvisorForm } from '@/app/components/ArchitectureAdvisorForm';
 
 export default function Home() {
   return (
