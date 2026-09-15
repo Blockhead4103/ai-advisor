@@ -18,11 +18,8 @@ export async function POST(request: Request) {
       },
       persisted: false,
     });
-  } catch (err: any) {
-    console.error("API Error:", err);
-    return NextResponse.json(
-      { error: err.message || "Failed to generate baseline audit." },
-      { status: 500 }
-    );
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : "Failed to generate baseline audit.";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
