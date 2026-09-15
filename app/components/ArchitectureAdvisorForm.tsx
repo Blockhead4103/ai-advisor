@@ -39,13 +39,13 @@ export default function ArchitectureAdvisorForm() {
       <form onSubmit={handleAnalyze} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-zinc-300 mb-2">
-            Paste a Prompt, Tech Stack, or URL for Instant Baseline Audit
+            Gib eine URL, einen Tech-Stack oder einen Code-Schnipsel ein:
           </label>
           <textarea
             rows={4}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="e.g., Next.js 16 app router with Supabase and Tailwind..."
+            placeholder="z.B. Next.js 16 App Router mit Supabase und Tailwind..."
             className="w-full rounded-xl border border-zinc-700 bg-zinc-900 p-4 text-white placeholder-zinc-500 focus:border-cyan-500 focus:outline-none"
             required
           />
@@ -55,7 +55,7 @@ export default function ArchitectureAdvisorForm() {
           disabled={loading || !input.trim()}
           className="w-full rounded-xl bg-cyan-600 py-3 font-medium text-white transition hover:bg-cyan-500 disabled:opacity-50"
         >
-          {loading ? "Analyzing Baseline..." : "Run Instant Audit"}
+          {loading ? "Analysiere Baseline..." : "Sofort-Audit starten"}
         </button>
       </form>
 
@@ -67,7 +67,7 @@ export default function ArchitectureAdvisorForm() {
 
       {result && (
         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-6 space-y-4">
-          <h3 className="font-semibold text-cyan-400">Baseline Audit Result</h3>
+          <h3 className="font-semibold text-cyan-400">Baseline Audit Ergebnis</h3>
           <p className="text-zinc-300 whitespace-pre-wrap leading-relaxed">{result}</p>
         </div>
       )}
