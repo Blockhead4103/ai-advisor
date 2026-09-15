@@ -2,23 +2,16 @@ import ArchitectureAdvisorForm from "@/app/components/ArchitectureAdvisorForm";
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col bg-zinc-50 font-sans dark:bg-black">
-      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col px-6 py-16">
-        <div className="mb-12 max-w-2xl space-y-4">
-          <p className="text-sm font-medium tracking-wide text-cyan-700 uppercase dark:text-cyan-400">
-            AI Architecture Advisor
+    <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-24">
+      <div className="w-full max-w-3xl space-y-8">
+        <header className="space-y-2">
+          <h1 className="text-3xl font-bold tracking-tight">Executive Platform Architecture Advisor</h1>
+          <p className="text-zinc-600 dark:text-zinc-400">
+            Evaluate your platform readiness, data maturity, and AI integration roadmap.
           </p>
-          <h1 className="text-4xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-            Drei Fragen. Eine Scorecard für Ihre KI-Architektur.
-          </h1>
-          <p className="text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Gemini 2.5 Pro bewertet Landschaft, Datenreife und KI-Ambition und
-            liefert Readiness Score, Executive Summary, Gap Analysis und drei
-            konkrete Hebel.
-          </p>
-        </div>
+        </header>
         <ArchitectureAdvisorForm />
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
