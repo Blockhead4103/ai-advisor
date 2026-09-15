@@ -3,23 +3,19 @@ import { analyzeBaseline } from "@/lib/genai";
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const { prompt } = body;
+    const { prompt } = await request.json();
 
-    if (!prompt || typeof prompt !== "string") {
-      return NextResponse.json({ error: "Input prompt is required." }, { status: 400 });
+    if (!prompt) {
+      return NextResponse.json({ error: "Input is required." }, { status: 400 });
     }
 
     const analysis = await analyzeBaseline(prompt);
 
     return NextResponse.json({
-      scorecard: {
-        executiveSummary: analysis,
-      },
+      scorecard: { executiveSummary: analysis },
       persisted: false,
     });
-  } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "Failed to generate baseline audit.";
-    return NextResponse.json({ error: message }, { status: 500 });
+  } catch (err: any) {
+    return NextResponse.json({ error: err.message || "Failed" }, { status: 500 });
   }
 }
